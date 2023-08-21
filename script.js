@@ -1,4 +1,9 @@
 let operand; let num1; let num2; let answer;
+const display = document.querySelector(".display")
+displayOut("Hello");
+
+
+
 function operate (num1, operand, num2){
     if(operand === "+")
     answer = add(num1, num2);
@@ -24,4 +29,9 @@ function multiply(num1, num2){
 
 function divide(num1, num2){
     return num1 / num2;
+}
+
+function displayOut (output){
+    console.log("hello")
+    display.textContent = output;
 }
