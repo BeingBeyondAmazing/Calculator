@@ -1,7 +1,9 @@
 let operand; let num1; let num2; let answer;
-const display = document.querySelector(".display")
-displayOut("Hello");
-
+const display = document.querySelector(".display");
+const buttons = document.querySelectorAll(".button");
+buttons.forEach(button => {
+    button.addEventListener('click', buttonClick)
+})
 
 
 function operate (num1, operand, num2){
@@ -13,6 +15,9 @@ function operate (num1, operand, num2){
     answer = multiply(num1, num2);
     if(operand === "/")
     answer = divide(num1, num2);
+}
+function buttonClick(event){
+    displayOut(event.target.textContent);
 }
 
 function add(num1, num2){
@@ -32,6 +37,5 @@ function divide(num1, num2){
 }
 
 function displayOut (output){
-    console.log("hello")
     display.textContent = output;
 }
