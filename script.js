@@ -43,12 +43,21 @@ function operandClick(event){
 
 function eqClick(event){
     const arrEq = equation.split(" ")
-    console.table(arrEq)
-    outcome = operate(parseFloat(arrEq[0]), arrEq[1], parseFloat(arrEq[2]));
-    displayOut(outcome);
+    const fullEq = arrEq.join(" ") + " = ";
+    for(let i = 0; i<arrEq.length-2; i+=2){
+        outcome = operate(parseFloat(arrEq[i]), arrEq[i+1], parseFloat(arrEq[i+2]));
+        arrEq[i+2] = outcome;
+    }
+    if(outcome === "undefined" || outcome === "NaN"){
+        outcome = "ERROR"
+    }
+    displayOut(fullEq + outcome);
+    equation = outcome;
+    outcome = 0;
 }
 function clearCalc(event){
     equation = "";
+    outcome = 0;
     displayOut(equation);
 }
 
